@@ -27,6 +27,10 @@
 		673F01D92245D8D900C725C6 /* stadium.scn in Resources */ = {isa = PBXBuildFile; fileRef = 673F01D42245D8D800C725C6 /* stadium.scn */; };
 		673F01DC2245D9ED00C725C6 /* caza.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 673F01DB2245D9ED00C725C6 /* caza.aiff */; };
 		673F01DE224677AE00C725C6 /* RadioAR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673F01DD224677AE00C725C6 /* RadioAR.swift */; };
+		6748C2B12246D4AE006AF1DD /* radio_DFS_u1_v1.tif in Resources */ = {isa = PBXBuildFile; fileRef = 6748C2AD2246D4AD006AF1DD /* radio_DFS_u1_v1.tif */; };
+		6748C2B22246D4AE006AF1DD /* radio_NORMAL_u1_v1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6748C2AE2246D4AE006AF1DD /* radio_NORMAL_u1_v1.png */; };
+		6748C2B32246D4AE006AF1DD /* radio_SPC_u1_v1.tif in Resources */ = {isa = PBXBuildFile; fileRef = 6748C2AF2246D4AE006AF1DD /* radio_SPC_u1_v1.tif */; };
+		6748C2B42246D4AE006AF1DD /* radio.scn in Resources */ = {isa = PBXBuildFile; fileRef = 6748C2B02246D4AE006AF1DD /* radio.scn */; };
 		67CFA9A922468A68002F75E1 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFA9A822468A68002F75E1 /* WelcomeViewController.swift */; };
 		67CFA9B822469665002F75E1 /* background3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67CFA9B722469665002F75E1 /* background3x.png */; };
 		67CFA9BA2246978A002F75E1 /* border.png in Resources */ = {isa = PBXBuildFile; fileRef = 67CFA9B92246978A002F75E1 /* border.png */; };
@@ -129,6 +133,10 @@
 		673F01D42245D8D800C725C6 /* stadium.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = stadium.scn; sourceTree = "<group>"; };
 		673F01DB2245D9ED00C725C6 /* caza.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = caza.aiff; sourceTree = "<group>"; };
 		673F01DD224677AE00C725C6 /* RadioAR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioAR.swift; sourceTree = "<group>"; };
+		6748C2AD2246D4AD006AF1DD /* radio_DFS_u1_v1.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = radio_DFS_u1_v1.tif; sourceTree = "<group>"; };
+		6748C2AE2246D4AE006AF1DD /* radio_NORMAL_u1_v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_NORMAL_u1_v1.png; sourceTree = "<group>"; };
+		6748C2AF2246D4AE006AF1DD /* radio_SPC_u1_v1.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = radio_SPC_u1_v1.tif; sourceTree = "<group>"; };
+		6748C2B02246D4AE006AF1DD /* radio.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = radio.scn; sourceTree = "<group>"; };
 		67CFA9A822468A68002F75E1 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		67CFA9B722469665002F75E1 /* background3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background3x.png; sourceTree = "<group>"; };
 		67CFA9B92246978A002F75E1 /* border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = border.png; sourceTree = "<group>"; };
@@ -275,8 +283,8 @@
 			children = (
 				5E3196F22061DEA40077BBD7 /* LiveViewSupport.swift */,
 				67CFA9A822468A68002F75E1 /* WelcomeViewController.swift */,
-				673F01CD2245D50900C725C6 /* StadiumAR.swift */,
 				673F01DD224677AE00C725C6 /* RadioAR.swift */,
+				673F01CD2245D50900C725C6 /* StadiumAR.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -292,6 +300,7 @@
 		673F01CF2245D8BD00C725C6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6748C2AC2246D488006AF1DD /* Radio */,
 				67CFA9AA22468FF9002F75E1 /* Welcome */,
 				673F01DA2245D91700C725C6 /* Stadium */,
 			);
@@ -309,6 +318,17 @@
 				673F01DB2245D9ED00C725C6 /* caza.aiff */,
 			);
 			path = Stadium;
+			sourceTree = "<group>";
+		};
+		6748C2AC2246D488006AF1DD /* Radio */ = {
+			isa = PBXGroup;
+			children = (
+				6748C2AD2246D4AD006AF1DD /* radio_DFS_u1_v1.tif */,
+				6748C2AE2246D4AE006AF1DD /* radio_NORMAL_u1_v1.png */,
+				6748C2AF2246D4AE006AF1DD /* radio_SPC_u1_v1.tif */,
+				6748C2B02246D4AE006AF1DD /* radio.scn */,
+			);
+			path = Radio;
 			sourceTree = "<group>";
 		};
 		67CFA9AA22468FF9002F75E1 /* Welcome */ = {
@@ -428,9 +448,13 @@
 			files = (
 				673F01D72245D8D900C725C6 /* stadium_NRM.png in Resources */,
 				5EF2F97C2054B6E400191409 /* ManifestPlist.strings in Resources */,
+				6748C2B12246D4AE006AF1DD /* radio_DFS_u1_v1.tif in Resources */,
 				673F01D82245D8D900C725C6 /* stadium_SPEC.png in Resources */,
+				6748C2B22246D4AE006AF1DD /* radio_NORMAL_u1_v1.png in Resources */,
 				67CFA9BC2246978F002F75E1 /* midfield.png in Resources */,
+				6748C2B42246D4AE006AF1DD /* radio.scn in Resources */,
 				5E086DCA2051DDAE004D8D25 /* LiveView.storyboard in Resources */,
+				6748C2B32246D4AE006AF1DD /* radio_SPC_u1_v1.tif in Resources */,
 				67CFA9B822469665002F75E1 /* background3x.png in Resources */,
 				673F01DC2245D9ED00C725C6 /* caza.aiff in Resources */,
 				673F01D62245D8D900C725C6 /* stadium_DFS2.png in Resources */,

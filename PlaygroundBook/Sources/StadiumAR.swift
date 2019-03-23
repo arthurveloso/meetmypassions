@@ -38,7 +38,25 @@ class StadiumViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
         self.view = sceneView
         setUpAudio()
         addTapGestureToSceneView()
+        addResetButton()
         sceneView.session.run(config, options: [.resetTracking, .removeExistingAnchors])
+    }
+    
+    func addResetButton() {
+        let resetButton = UIButton(frame: CGRect(x: 20, y: 20, width: 120, height: 100))
+        resetButton.backgroundColor = .gray
+        resetButton.backgroundColor?.withAlphaComponent(0.5)
+        resetButton.setTitleColor(.white, for: .normal)
+        resetButton.setTitle("RESET", for: .normal)
+        resetButton.addTarget(self, action: #selector(resetScene), for: .touchUpInside)
+        self.sceneView.addSubview(resetButton)
+    }
+    
+    @objc func resetScene() {
+        sceneView.scene.rootNode.enumerateChildNodes({ (node, stop) in
+            node.removeFromParentNode()
+            node.removeAllAudioPlayers()
+        })
     }
     
     @objc func addShipToSceneView(withGestureRecognizer recognizer: UIGestureRecognizer) {

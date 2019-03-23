@@ -14,7 +14,6 @@ class RadioViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegat
     let session = ARSession()
     let sceneView = ARSCNView()
     var audioSource: SCNAudioSource!
-    var resetButton: UIButton?
     var plane: SCNNode?
 
     override func viewDidLoad() {
@@ -38,9 +37,20 @@ class RadioViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegat
         self.view = sceneView
 //        setUpAudio()
         addTapGestureToSceneView()
+        addResetButton()
         sceneView.session.run(config, options: [.resetTracking, .removeExistingAnchors])
     }
 
+    func addResetButton() {
+        let resetButton = UIButton(frame: CGRect(x: 20, y: 20, width: 120, height: 100))
+        resetButton.backgroundColor = .gray
+        resetButton.backgroundColor?.withAlphaComponent(0.5)
+        resetButton.setTitleColor(.white, for: .normal)
+        resetButton.setTitle("RESET", for: .normal)
+        resetButton.addTarget(self, action: #selector(resetScene), for: .touchUpInside)
+        self.sceneView.addSubview(resetButton)
+    }
+    
     @objc func addShipToSceneView(withGestureRecognizer recognizer: UIGestureRecognizer) {
         let tapLocation = recognizer.location(in: sceneView)
         let hitTestResults = sceneView.hitTest(tapLocation, types: .existingPlaneUsingExtent)
@@ -87,6 +97,13 @@ class RadioViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegat
         sceneView.addGestureRecognizer(tapGestureRecognizer)
     }
 
+    @objc func resetScene() {
+        sceneView.scene.rootNode.enumerateChildNodes({ (node, stop) in
+            node.removeFromParentNode()
+            node.removeAllAudioPlayers()
+        })
+    }
+    
 //    private func setUpAudio() {
 //        audioSource = SCNAudioSource(fileNamed: "caza.aiff")!
 //        audioSource.loops = true
