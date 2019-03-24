@@ -15,6 +15,7 @@ class RadioViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegat
     let sceneView = ARSCNView()
     var audioSource: SCNAudioSource!
     var plane: SCNNode?
+    var radioAdded = false
 
     override func viewDidLoad() {
         let scene = SCNScene()
@@ -29,7 +30,7 @@ class RadioViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegat
 
         sceneView.session.delegate = self
         sceneView.autoenablesDefaultLighting = true
-        sceneView.automaticallyUpdatesLighting = true
+//        sceneView.automaticallyUpdatesLighting = true
         sceneView.isUserInteractionEnabled = true
 
         self.view.isUserInteractionEnabled = true
@@ -37,13 +38,14 @@ class RadioViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegat
         self.view = sceneView
 //        setUpAudio()
         addTapGestureToSceneView()
-        addResetButton()
         sceneView.session.run(config, options: [.resetTracking, .removeExistingAnchors])
+        addResetButton()
     }
 
     func addResetButton() {
-        let resetButton = UIButton(frame: CGRect(x: 20, y: 20, width: 120, height: 100))
+        let resetButton = UIButton(frame: CGRect(x: 20, y: 20, width: 100, height: 100))
         resetButton.backgroundColor = .gray
+        resetButton.layer.cornerRadius = 50
         resetButton.backgroundColor?.withAlphaComponent(0.5)
         resetButton.setTitleColor(.white, for: .normal)
         resetButton.setTitle("RESET", for: .normal)
@@ -67,8 +69,11 @@ class RadioViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegat
 
         shipNode.scale = SCNVector3(0.02, 0.02, 0.02)
         shipNode.position = SCNVector3(x,y,z)
-        sceneView.scene.rootNode.addChildNode(shipNode)
-        self.plane?.removeFromParentNode()
+        if (!radioAdded) {
+            sceneView.scene.rootNode.addChildNode(shipNode)
+            self.plane?.removeFromParentNode()
+            radioAdded = true
+        }
 //        playSound(node: shipNode)
     }
 
@@ -98,6 +103,7 @@ class RadioViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegat
     }
 
     @objc func resetScene() {
+        radioAdded = false
         sceneView.scene.rootNode.enumerateChildNodes({ (node, stop) in
             node.removeFromParentNode()
             node.removeAllAudioPlayers()

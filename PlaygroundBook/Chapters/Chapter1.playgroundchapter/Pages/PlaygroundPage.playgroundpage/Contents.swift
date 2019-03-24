@@ -5,8 +5,13 @@
  
  My name is Arthur and I'm a Computer Science student with many passions to share.
  
- Going to WWDC was always one of my biggest dreams in life. The dream started as the same time that my love for technology (and Apple) was born.
+ Passei um tempo pensando o que poderia estar presente nesse playground, quis mexer com coisas que trabalho no dia-a-dia, mas provavelmente não iriam refletir a mensagem que eu gostaria de passar. Por fim, decidi trabalhar com minhas paixões, tenho muitas, mas pra esse playground escolhi duas: tecnologia (mais especificamente Apple) 🤖 e futebol ⚽️
  
- Back in 2008 I won as present from my parentes my first Apple product, a 2nd generation iPod touch. It was magical to me, I was **really** impressed by all the possibilities that were opened with that device. I love how the accelerometer work, played a lot of games with it and fell in love.
+ Para maior imersão, decidi utilizar Realidade Aumentada e as funcionalidades que o ARKit nos provê de maneira bastante fácil.
  
+ Recomendo utilizar este playground no modo landscape 😁
+ 
+ Agora vamos para a próxima página, basta clicar na seta para a direita no topo, ao lado do título, para conhecer a minha primeira paixão.
+ 
+ Or click [here](@next) if you prefer.
  */

@@ -16,6 +16,7 @@ class StadiumViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
     var audioSource: SCNAudioSource!
     var resetButton: UIButton?
     var plane: SCNNode?
+    var stadiumAdded = false
 
     override func viewDidLoad() {
         let scene = SCNScene()
@@ -43,8 +44,9 @@ class StadiumViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
     }
     
     func addResetButton() {
-        let resetButton = UIButton(frame: CGRect(x: 20, y: 20, width: 120, height: 100))
+        let resetButton = UIButton(frame: CGRect(x: 20, y: 20, width: 100, height: 100))
         resetButton.backgroundColor = .gray
+        resetButton.layer.cornerRadius = 50
         resetButton.backgroundColor?.withAlphaComponent(0.5)
         resetButton.setTitleColor(.white, for: .normal)
         resetButton.setTitle("RESET", for: .normal)
@@ -53,9 +55,12 @@ class StadiumViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
     }
     
     @objc func resetScene() {
+        stadiumAdded = false
         sceneView.scene.rootNode.enumerateChildNodes({ (node, stop) in
             node.removeFromParentNode()
+            audioSource = nil
             node.removeAllAudioPlayers()
+            setUpAudio()
         })
     }
     
@@ -75,9 +80,12 @@ class StadiumViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
         
         shipNode.scale = SCNVector3(0.02, 0.02, 0.02)
         shipNode.position = SCNVector3(x,y,z)
-        sceneView.scene.rootNode.addChildNode(shipNode)
-        self.plane?.removeFromParentNode()
-        playSound(node: shipNode)
+        if (!stadiumAdded) {
+            sceneView.scene.rootNode.addChildNode(shipNode)
+            self.plane?.removeFromParentNode()
+            playSound(node: shipNode)
+            stadiumAdded = true
+        }
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
