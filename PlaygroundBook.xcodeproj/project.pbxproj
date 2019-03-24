@@ -32,6 +32,7 @@
 		6748C2B32246D4AE006AF1DD /* radio_SPC_u1_v1.tif in Resources */ = {isa = PBXBuildFile; fileRef = 6748C2AF2246D4AE006AF1DD /* radio_SPC_u1_v1.tif */; };
 		6748C2B42246D4AE006AF1DD /* radio.scn in Resources */ = {isa = PBXBuildFile; fileRef = 6748C2B02246D4AE006AF1DD /* radio.scn */; };
 		6748C2B62246EDA2006AF1DD /* passionsicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6748C2B52246EDA2006AF1DD /* passionsicon.png */; };
+		6793E47F2247EE8200F0CBF5 /* podcast.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 6793E47E2247EE8200F0CBF5 /* podcast.aiff */; };
 		67CFA9A922468A68002F75E1 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFA9A822468A68002F75E1 /* WelcomeViewController.swift */; };
 		67CFA9B822469665002F75E1 /* background3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67CFA9B722469665002F75E1 /* background3x.png */; };
 		67CFA9BA2246978A002F75E1 /* border.png in Resources */ = {isa = PBXBuildFile; fileRef = 67CFA9B92246978A002F75E1 /* border.png */; };
@@ -139,6 +140,7 @@
 		6748C2AF2246D4AE006AF1DD /* radio_SPC_u1_v1.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = radio_SPC_u1_v1.tif; sourceTree = "<group>"; };
 		6748C2B02246D4AE006AF1DD /* radio.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = radio.scn; sourceTree = "<group>"; };
 		6748C2B52246EDA2006AF1DD /* passionsicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = passionsicon.png; sourceTree = "<group>"; };
+		6793E47E2247EE8200F0CBF5 /* podcast.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = podcast.aiff; sourceTree = "<group>"; };
 		67CFA9A822468A68002F75E1 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		67CFA9B722469665002F75E1 /* background3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background3x.png; sourceTree = "<group>"; };
 		67CFA9B92246978A002F75E1 /* border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = border.png; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				6748C2AE2246D4AE006AF1DD /* radio_NORMAL_u1_v1.png */,
 				6748C2AF2246D4AE006AF1DD /* radio_SPC_u1_v1.tif */,
 				6748C2B02246D4AE006AF1DD /* radio.scn */,
+				6793E47E2247EE8200F0CBF5 /* podcast.aiff */,
 			);
 			path = Radio;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				6748C2B12246D4AE006AF1DD /* radio_DFS_u1_v1.tif in Resources */,
 				673F01D82245D8D900C725C6 /* stadium_SPEC.png in Resources */,
 				6748C2B22246D4AE006AF1DD /* radio_NORMAL_u1_v1.png in Resources */,
+				6793E47F2247EE8200F0CBF5 /* podcast.aiff in Resources */,
 				67CFA9BC2246978F002F75E1 /* midfield.png in Resources */,
 				6748C2B42246D4AE006AF1DD /* radio.scn in Resources */,
 				5E086DCA2051DDAE004D8D25 /* LiveView.storyboard in Resources */,

@@ -30,13 +30,12 @@ class RadioViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegat
 
         sceneView.session.delegate = self
         sceneView.autoenablesDefaultLighting = true
-//        sceneView.automaticallyUpdatesLighting = true
         sceneView.isUserInteractionEnabled = true
 
         self.view.isUserInteractionEnabled = true
 
         self.view = sceneView
-//        setUpAudio()
+        setUpAudio()
         addTapGestureToSceneView()
         sceneView.session.run(config, options: [.resetTracking, .removeExistingAnchors])
         addResetButton()
@@ -53,7 +52,7 @@ class RadioViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegat
         self.sceneView.addSubview(resetButton)
     }
     
-    @objc func addShipToSceneView(withGestureRecognizer recognizer: UIGestureRecognizer) {
+    @objc func addRadioToSceneView(withGestureRecognizer recognizer: UIGestureRecognizer) {
         let tapLocation = recognizer.location(in: sceneView)
         let hitTestResults = sceneView.hitTest(tapLocation, types: .existingPlaneUsingExtent)
 
@@ -63,18 +62,18 @@ class RadioViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegat
         let y = translation.y
         let z = translation.z
 
-        guard let shipScene = SCNScene(named: "radio.scn"),
-            let shipNode = shipScene.rootNode.childNode(withName: "radio", recursively: false)
+        guard let radioScene = SCNScene(named: "radio.scn"),
+            let radioNode = radioScene.rootNode.childNode(withName: "radio", recursively: false)
             else { return }
 
-        shipNode.scale = SCNVector3(0.02, 0.02, 0.02)
-        shipNode.position = SCNVector3(x,y,z)
+        radioNode.scale = SCNVector3(0.02, 0.02, 0.02)
+        radioNode.position = SCNVector3(x,y,z)
         if (!radioAdded) {
-            sceneView.scene.rootNode.addChildNode(shipNode)
+            sceneView.scene.rootNode.addChildNode(radioNode)
             self.plane?.removeFromParentNode()
+            playSound(node: radioNode)
             radioAdded = true
         }
-//        playSound(node: shipNode)
     }
 
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
@@ -98,7 +97,7 @@ class RadioViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegat
     }
 
     func addTapGestureToSceneView() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addShipToSceneView(withGestureRecognizer:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addRadioToSceneView(withGestureRecognizer:)))
         sceneView.addGestureRecognizer(tapGestureRecognizer)
     }
 
@@ -106,20 +105,22 @@ class RadioViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegat
         radioAdded = false
         sceneView.scene.rootNode.enumerateChildNodes({ (node, stop) in
             node.removeFromParentNode()
+            audioSource = nil
             node.removeAllAudioPlayers()
+            setUpAudio()
         })
     }
     
-//    private func setUpAudio() {
-//        audioSource = SCNAudioSource(fileNamed: "caza.aiff")!
-//        audioSource.loops = true
-//        audioSource.isPositional = true
-//        audioSource.volume = 0.5
-//        audioSource.load()
-//    }
-//
-//    private func playSound(node: SCNNode) {
-//        node.removeAllAudioPlayers()
-//        node.addAudioPlayer(SCNAudioPlayer(source: audioSource))
-//    }
+    private func setUpAudio() {
+        audioSource = SCNAudioSource(fileNamed: "podcast.aiff")!
+        audioSource.loops = true
+        audioSource.isPositional = true
+        audioSource.volume = 0.5
+        audioSource.load()
+    }
+
+    private func playSound(node: SCNNode) {
+        node.removeAllAudioPlayers()
+        node.addAudioPlayer(SCNAudioPlayer(source: audioSource))
+    }
 }

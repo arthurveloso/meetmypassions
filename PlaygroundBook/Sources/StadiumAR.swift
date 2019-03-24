@@ -14,7 +14,6 @@ class StadiumViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
     let session = ARSession()
     let sceneView = ARSCNView()
     var audioSource: SCNAudioSource!
-    var resetButton: UIButton?
     var plane: SCNNode?
     var stadiumAdded = false
 
@@ -64,7 +63,7 @@ class StadiumViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
         })
     }
     
-    @objc func addShipToSceneView(withGestureRecognizer recognizer: UIGestureRecognizer) {
+    @objc func addStadiumToSceneView(withGestureRecognizer recognizer: UIGestureRecognizer) {
         let tapLocation = recognizer.location(in: sceneView)
         let hitTestResults = sceneView.hitTest(tapLocation, types: .existingPlaneUsingExtent)
         
@@ -74,16 +73,16 @@ class StadiumViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
         let y = translation.y
         let z = translation.z
         
-        guard let shipScene = SCNScene(named: "stadium.scn"),
-            let shipNode = shipScene.rootNode.childNode(withName: "stadium", recursively: false)
+        guard let stadiumScene = SCNScene(named: "stadium.scn"),
+            let stadiumNode = stadiumScene.rootNode.childNode(withName: "stadium", recursively: false)
             else { return }
         
-        shipNode.scale = SCNVector3(0.02, 0.02, 0.02)
-        shipNode.position = SCNVector3(x,y,z)
+        stadiumNode.scale = SCNVector3(0.02, 0.02, 0.02)
+        stadiumNode.position = SCNVector3(x,y,z)
         if (!stadiumAdded) {
-            sceneView.scene.rootNode.addChildNode(shipNode)
+            sceneView.scene.rootNode.addChildNode(stadiumNode)
             self.plane?.removeFromParentNode()
-            playSound(node: shipNode)
+            playSound(node: stadiumNode)
             stadiumAdded = true
         }
     }
@@ -109,7 +108,7 @@ class StadiumViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
     }
     
     func addTapGestureToSceneView() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addShipToSceneView(withGestureRecognizer:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addStadiumToSceneView(withGestureRecognizer:)))
         sceneView.addGestureRecognizer(tapGestureRecognizer)
     }
     
