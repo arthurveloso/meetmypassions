@@ -86,6 +86,52 @@
             </objects>
             <point key="canvasLocation" x="1524" y="96"/>
         </scene>
+        <!--See Ya View Controller-->
+        <scene sceneID="jAb-OI-6a0">
+            <objects>
+                <viewController storyboardIdentifier="seeya" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cRo-kf-5oN" customClass="SeeYaViewController" customModule="Book_Sources" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lfY-S8-fXj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="KU0-rR-0eh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="midfield.png" translatesAutoresizingMaskIntoConstraints="NO" id="h15-aP-5PX" userLabel="midfield">
+                                <rect key="frame" x="122" y="268" width="131" height="131"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="border.png" translatesAutoresizingMaskIntoConstraints="NO" id="7fO-uY-Lqi" userLabel="border">
+                                <rect key="frame" x="104" y="245" width="166" height="176"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="See you at WWDC" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4r-q6-YCD">
+                                <rect key="frame" x="116" y="298" width="143" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KU0-rR-0eh" firstAttribute="bottom" secondItem="L3L-n7-dtc" secondAttribute="bottom" id="4BW-Uw-Xdq"/>
+                            <constraint firstItem="KU0-rR-0eh" firstAttribute="leading" secondItem="lfY-S8-fXj" secondAttribute="leading" id="8Bm-4F-UiF"/>
+                            <constraint firstAttribute="trailing" secondItem="KU0-rR-0eh" secondAttribute="trailing" id="Qtf-3Q-vF7"/>
+                            <constraint firstItem="KU0-rR-0eh" firstAttribute="top" secondItem="lfY-S8-fXj" secondAttribute="top" id="fom-3c-MlZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="L3L-n7-dtc"/>
+                    </view>
+                    <connections>
+                        <outlet property="border" destination="7fO-uY-Lqi" id="sKJ-7N-Z22"/>
+                        <outlet property="midfield" destination="h15-aP-5PX" id="Cx2-zY-8aB"/>
+                        <outlet property="seeYa" destination="M4r-q6-YCD" id="uGe-Kb-ZHc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F05-qi-bVP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2324" y="95.802098950524751"/>
+        </scene>
     </scenes>
     <resources>
         <image name="background3x.png" width="1536" height="2304"/>
