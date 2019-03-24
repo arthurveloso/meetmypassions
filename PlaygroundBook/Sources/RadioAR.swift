@@ -10,7 +10,7 @@ import ARKit
 import SceneKit
 import PlaygroundSupport
 
-class RadioViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
+class RadioViewController: UIViewController, ARSCNViewDelegate {
     let session = ARSession()
     let sceneView = ARSCNView()
     var audioSource: SCNAudioSource!
@@ -28,7 +28,6 @@ class RadioViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegat
         sceneView.session = session
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
 
-        sceneView.session.delegate = self
         sceneView.autoenablesDefaultLighting = true
         sceneView.isUserInteractionEnabled = true
 
